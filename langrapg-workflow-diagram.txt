@@ -1,0 +1,43 @@
+## LangGraph Workflow Diagram
+
+Below is a simplified representation of how the multi-agent workflow operates:
+
+    +------------------+
+    |  User Input Idea  |
+    +---------+--------+
+              |
+              v
+    +------------------+
+    |  Market Analyst  |
+    +---------+--------+
+              |
+      (if market viable)
+              v
+    +------------------+
+    | Technical Reviewer|
+    +---------+--------+
+              |
+      (if technically feasible)
+              v
+    +------------------+
+    | Business Strategist|
+    +---------+--------+
+              |
+              v
+    +------------------+
+    | Recommendation    |
+    | & Final Report    |
+    +---------+--------+
+              |
+              v
+    +------------------+
+    | Streamed Output  |
+    +------------------+
+
+
+**Notes:**  
+- **Conditional branching:** Agents can skip or escalate based on prior results (e.g., non-viable ideas).  
+- **Context sharing:** Each agent builds upon outputs from previous agents.  
+- **Streaming:** The final evaluation is streamed incrementally to the frontend.  
+
+
