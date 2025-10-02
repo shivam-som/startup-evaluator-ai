@@ -116,3 +116,36 @@ B2B SaaS with tiered pricing is a viable approach. However, customer acquisition
 Recommendation: Proceed with MVP; focus initial testing on e-commerce verticals.
 ```
 
+---
+
+## Architecture Overview
+
+* **Frontend**: Simple HTML/JS interface for real-time streaming chat.
+* **Backend**: FastAPI server that orchestrates LangGraph workflow.
+* **Agents**: Modular Python classes for Market, Technical, Business, and Recommendation analysis.
+* **Workflow**: LangGraph graph manages conditional routing, context sharing, and adaptive agent execution.
+* **Streaming**: Backend streams incremental responses via server-sent events (SSE) to the frontend.
+* **LLM Client**: Handles Google AI Studio model calls with fallback to ensure uninterrupted responses.
+
+---
+
+## Agents Description
+
+| Agent                | Responsibility                                                |
+| -------------------- | ------------------------------------------------------------- |
+| Market Analyst       | Evaluates market demand, trends, and competition.             |
+| Technical Reviewer   | Checks technical feasibility and architecture considerations. |
+| Business Strategist  | Assesses business model, pricing, GTM strategy, risks.        |
+| Recommendation Agent | Synthesizes all agent outputs into structured advice.         |
+| Final Agent          | Formats and streams the final report to the user.             |
+
+---
+
+## Future Modifications
+
+* Improve LLM agent reasoning with more context-aware prompts.
+* Add authentication and user management.
+* Enhance frontend UI/UX for better visualization of multi-part responses.
+* Extend agents to leverage external APIs for real-time market insights.
+
+---
