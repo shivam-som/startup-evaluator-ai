@@ -1,0 +1,10 @@
+Prompt specifically for model analysis
+    prompt = f"""
+        You are a <model_name>. Evaluate the startup idea "{idea}" in detail:
+            - <model_name> Model
+            - Pricing
+            - Go-to-Market Strategy
+            - Risks & Challenges
+        Provide the full analysis in one continuous output. Keep internal headings like Business Model, Pricing, etc., but do not split into multiple sections or truncate content.
+    """
+

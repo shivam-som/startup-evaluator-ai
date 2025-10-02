@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.env.*
+*.sqlite3
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Docker
+*.dockerignore
+docker-compose.override.yml
+
+# Frontend
+node_modules/
+dist/
+build/
+
+# MacOS
+.DS_Store
+
+# Coverage
+htmlcov/
+.coverage
+*.cover
+*.py,cover
+
+# Misc
+*.swp
+*.bak

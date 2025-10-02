@@ -1,0 +1,97 @@
+# Startup Evaluator AI
+
+A **multi-agent AI system** built using **LangGraph** that evaluates startup ideas in real time. Users submit startup concepts via a web-based chat interface, and the system orchestrates multiple specialized agents—**Market Analyst**, **Technical Reviewer**, and **Business Strategist**—to provide structured, actionable insights. The evaluation is streamed back to the user incrementally, ensuring a seamless, interactive experience.
+
+
+## Features
+
+- **Real-time Streaming Chat Interface**: Powered by FastAPI and a simple web frontend.
+- **Multi-Agent System**:  
+  - **Market Analyst Agent** – Evaluates market fit, customer demand, and competition.  
+  - **Technical Reviewer Agent** – Assesses technical feasibility and architecture.  
+  - **Business Strategist Agent** – Reviews business model, pricing strategy, and go-to-market approach.  
+- **Adaptive LangGraph Workflow**: Agents share context, adapt based on prior results, and may escalate for clarification.  
+- **Streaming Responses**: Incremental, token-by-token responses to the user for a natural chat experience.  
+- **Containerized Deployment**: Docker and Docker Compose enable one-command startup.
+
+---
+
+## Repository Structure
+
+```
+
+├── backend
+│   ├── main.py                # FastAPI backend entrypoint
+│   ├── my_workflow.py         # LangGraph workflow orchestration
+│   ├── requirements.txt       # Backend dependencies
+│   ├── agents                 # Specialized AI agents
+│   │   ├── business_agent.py
+│   │   ├── market_agent.py
+│   │   ├── technical_agent.py
+│   │   ├── recommendation_agent.py
+│   │   └── final_agent.py
+│   └── utils                  # Helper utilities (e.g., LLM client)
+│       └── llm_client.py
+├── frontend
+│   ├── index.html             # Web interface
+│   ├── script.js              # Frontend logic for chat and streaming
+│   └── style.css              # Styles
+├── Dockerfile                 # Container image for backend
+├── docker-compose.yml         # Run backend + frontend
+├── .env                       # Environment variables (e.g., API keys)
+├── requirements.txt           # Root Python dependencies (optional)
+└── README.md                  # Project documentation
+
+````
+
+---
+
+## Setup & Run Instructions
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/shivam-som/startup-evaluator-ai.git
+cd startup-evaluator-ai
+````
+
+2. **Create `.env` file** with your LLM API key, e.g.:
+
+```env
+OPENAI_API_KEY=your_api_key_here
+GS_MODEL_NAME=models/gemini-2.5-flash-lite-preview-06-17
+```
+
+3. **Install dependencies** (optional if using Docker):
+
+pip install -r backend/requirements.txt
+
+4. **Run with Docker Compose** (recommended):
+
+docker compose up
+
+5. **Access the web app**: Open [http://localhost:8000](http://localhost:8000) in your browser.
+   Submit a startup idea and see the streaming evaluation in real time.
+
+---
+
+## Example Input & Output
+
+**Input:**
+
+```
+I’m building an AI platform that helps small businesses automatically generate product descriptions and marketing copy tailored to different customer segments.
+```
+
+**Streamed Output:**
+
+```
+Startup Evaluation Report
+Market Analysis:
+There is increasing demand for AI-assisted content tools in the SMB segment...
+Technical Feasibility:
+The system is feasible using pre-trained LLMs with light customization...
+Business Strategy:
+B2B SaaS with tiered pricing is a viable approach. However, customer acquisition could be challenging...
+Recommendation: Proceed with MVP; focus initial testing on e-commerce verticals.
+```
