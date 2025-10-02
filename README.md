@@ -13,6 +13,26 @@ A **multi-agent AI system** built using **LangGraph** that evaluates startup ide
 - **Adaptive LangGraph Workflow**: Agents share context, adapt based on prior results, and may escalate for clarification.  
 - **Streaming Responses**: Incremental, token-by-token responses to the user for a natural chat experience.  
 - **Containerized Deployment**: Docker and Docker Compose enable one-command startup.
+- **Flexible LLM Usage**: Handles free-tier limits gracefully using multiple Google AI Studio models.
+
+---
+
+
+## LLM Client (`llm_client.py`)
+
+The `llm_client.py` file provides two approaches to call Google AI Studio models:
+
+1. **Primary Approach** (default):  
+   - Uses a **specific model** (`models/gemini-2.5-flash-lite-preview-06-17`) to generate responses.  
+   - This approach is **faster** and simpler.  
+
+2. **Fallback Approach** (optional, uncomment when free-tier limit is reached):  
+   - Iterates through **all available Google AI Studio models** that support content generation.  
+   - Automatically picks the first available model that works.  
+   - Ensures the system **never blocks** due to API usage limits.  
+
+This design allows the system to remain **robust and continuously operational**, even if the free quota for a particular model is exhausted.  
+
 
 ---
 
@@ -95,3 +115,4 @@ Business Strategy:
 B2B SaaS with tiered pricing is a viable approach. However, customer acquisition could be challenging...
 Recommendation: Proceed with MVP; focus initial testing on e-commerce verticals.
 ```
+
