@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Startup Evaluation Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h2>Startup Evaluation Assistant</h2>
+  <div id="chat"></div>
+  <textarea id="input" placeholder="Type your idea here..."></textarea><br>
+  <button onclick="send()">Submit Idea</button>
+  <button onclick="clearChat()">Clear Chat</button>
+
+  <div id="modal">
+    <div id="modal-content-wrapper">
+      <span id="modal-close">&times;</span>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
