@@ -3,6 +3,14 @@
 A **multi-agent AI system** built using **LangGraph** that evaluates startup ideas in real time. Users submit startup concepts via a web-based chat interface, and the system orchestrates multiple specialized agents—**Market Analyst**, **Technical Reviewer**, and **Business Strategist**—to provide structured, actionable insights. The evaluation is streamed back to the user incrementally, ensuring a seamless, interactive experience.
 
 
+## LangGraph Workflow Diagram
+
+A visual representation of the multi-agent workflow is provided in the repository:  
+**`langgraph-workflow-diagram.txt`** ✅
+
+This diagram shows how user input is routed through agents, including conditional branching, context sharing, and streaming of the final evaluation back to the user.
+
+
 ## Features
 
 - **Real-time Streaming Chat Interface**: Powered by FastAPI and a simple web frontend.
@@ -149,3 +157,4 @@ Recommendation: Proceed with MVP; focus initial testing on e-commerce verticals.
 * Extend agents to leverage external APIs for real-time market insights.
 
 ---
+
